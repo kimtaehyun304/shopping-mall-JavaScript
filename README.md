@@ -2,7 +2,7 @@
 
 https://202030411-kth-tmart.netlify.app/
 
-학교 JavaScript 수업 과제 제출용으로 만들었기 때문에 DB와 서버를 사용하지 않고 JavaScript로만 만들었습니다.  
+학교 JavaScript 수업 과제 제출용으로 만들었기 때문에, DB와 서버를 사용하지 않고 JavaScript로만 만들었습니다.  
 
 [설명]  
 fetch api로 localhost api 서버와 통신(api 서버가 동작한다는 가정하에 만들었습니다.)  
