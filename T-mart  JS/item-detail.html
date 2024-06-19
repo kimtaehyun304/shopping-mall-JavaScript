@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>T Mart</title>
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/shop-item-template.css" rel="stylesheet" />
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#!">T Mart</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#!"></a></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">My</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item">구매 목록</a></li>
+                            <li><a class="dropdown-item">회원 정보</a></li>
+                            <li><a class="dropdown-item">쿠폰 목록</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item">상품 판매</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <a class="btn btn-outline-dark" href="item-cart.html">
+                    <i class="bi-cart-fill me-1"></i>
+                    Cart
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">4</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header-->
+    <header>
+        <div class="container">
+            <div class="text-center text-black">
+                <h1 class="display-4 fw-bolder">상품 상세</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Product section-->
+    <section class="container px-4 px-lg-5 my-1">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-md-6"><img id="image" class="card-img-top mb-5 mb-md-0"
+                    src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
+            <div class="col-md-6">
+                <h1 class="display-5 fw-bolder" id="name">Shop item template</h1>
+                <div class="fs-5 mb-2">
+                    <span id="price">10000원</span>
+                    <span id="seller">농심</span>
+                </div>
+                <p class="lead" id="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesen
+                    s eius blanditiis
+                    delectus ipsam minima ea iste laborum vero?</p>
+                <p class="lead">2024-05-08</p>
+
+                <label for="quantity">남은 수량</label>
+                <div class="myQuantity form-control w-50 mb-2">1</div>
+
+                <label for="count">주문 수량</label>
+                <input type="number" min="1" name="count" value="1" class="form-control w-50 mb-2" id="count"
+                    placeholder="주문 수량을 입력하세요">
+
+                <div class="d-flex mt-3 mb-3">
+                    <button id="buyBtn" class="btn btn-outline-dark flex-shrink-0 me-3" type="button">
+                        구매
+                    </button>
+                    <button class="my-cart btn btn-outline-dark flex-shrink-0" type="button">
+                        <i class="bi-cart-fill me-1"></i>
+                        장바구니 담기
+                    </button>
+                </div>
+                <button class="btn btn-outline-dark flex-shrink-0" type="button" id="review-btn">
+                    <i class="bi-chat-right-text-fill me-1"></i>
+                    리뷰
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comments section-->
+    <section class="container px-4 px-lg-5 my-4" id="review-box">
+        <div class="card bg-light">
+            <div class="card-body">
+                <!-- Comment form-->
+                <div class="mb-4">
+                    <textarea class="form-control" rows="3" placeholder="댓글을 남기세요!"></textarea>
+                    <buttn class="saveBtn btn btn-primary m-3">저장</buttn>
+                </div>
+                <!--Comments -->
+                <div class="myComments">
+                    <!-- Comment with nested comments-->
+                    <div class="d-flex mb-4">
+                        <!-- Parent comment-->
+                        <div class="flex-shrink-0"><img class="rounded-circle"
+                                src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."></div>
+                        <div class="ms-3">
+                            <div class="my-comment">
+                                <div class="fw-bold">김병만</div>
+                                <div>
+                                    If you're going to lead a space frontier, it has to be government; it'll never be
+                                    private
+                                    enterprise. Because the space frontier is dangerous, and it's expensive, and it has
+                                    unquantified
+                                    risks.
+                                </div>
+                            </div>
+                            <!-- Child comment 1-->
+                            <div class="d-flex mt-4">
+                                <div class="flex-shrink-0"><img class="rounded-circle"
+                                        src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."></div>
+                                <div class="my-comment ms-3">
+                                    <div class="fw-bold">김찬호</div>
+                                    <div>
+                                        And under those conditions, you cannot establish a capital-market evaluation of
+                                        that
+                                        enterprise. You can't get investors.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single comment-->
+                    <div class="d-flex">
+                        <div class="flex-shrink-0"><img class="rounded-circle"
+                                src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."></div>
+                        <div class="my-comment ms-3">
+                            <div class="fw-bold">강호동</div>
+                            <div>
+                                When I look at the universe and all the ways the universe wants to kill us, I find it
+                                hard
+                                to reconcile that with statements of beneficence.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer-->
+    <footer class="py-5 bg-dark mt-auto">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; KTH JavaScript 2024</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!--상품 정보 할당-->
+    <script src="./js/items.js"></script>
+    <script>
+        let userName = "김병만"
+        let nameElement = document.getElementById("name")
+        let descriptionElement = document.getElementById("description")
+        let priceElement = document.getElementById("price")
+        let sellerElement = document.getElementById("seller")
+        let imgElement = document.getElementById("image")
+        let quantityElement = document.querySelector(".myQuantity")
+
+        let urlParams = new URL(location.href).searchParams;
+        let page = urlParams.get('p');
+        if (page == undefined) page = 1
+        let itemId = urlParams.get('itemId');
+        let currentPageItem = items[page]
+
+        for (let i = 0; i < currentPageItem.length; i++) {
+            if (currentPageItem[i].itemId != itemId) continue
+            nameElement.textContent = currentPageItem[i].name
+            descriptionElement.textContent = currentPageItem[i].description
+            priceElement.textContent = currentPageItem[i].price + "원"
+            sellerElement.textContent = currentPageItem[i].seller
+            quantityElement.textContent = currentPageItem[i].quantity
+            imgElement.src = "./images/" + currentPageItem[i].name + ".jpg"
+        }
+
+
+    </script>
+
+    <!--댓글 저장 로직-->
+    <script>
+        let saveBtn = document.querySelector(".saveBtn");
+        saveBtn.addEventListener("click", function (e) {
+            saveBtn.disabled = true
+
+            //저장 성공하면 댓글을 화면에 뿌려주는게 맞다고 생각하지만, 기능 표시를 위해 그냥 뿌렸습니다.
+            let myCommentsElement = document.querySelector(".myComments");
+            let textarea = document.querySelector("textarea");
+            let newCommentElement = `<div class="d-flex mt-3">
+                        <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."></div>
+                        <div class="my-comment ms-3">
+                            <div class="fw-bold">${userName}</div>
+                            <div>${textarea.value}</div>
+                        </div>
+                    </div>`;
+
+            myCommentsElement.innerHTML += newCommentElement
+
+            async function buy() {
+                const headers = {
+                    "Content-Type": "application/json;charset=UTF-8",
+                    "x-requested-with": "XMLHttpRequest",
+                };
+                const body = { itemId: itemId, userName: userName };
+                try {
+                    //서버가 작동한다고 가정하고 코드를 작성했습니다.
+                    const response = await fetch("http://localhost:8080/comment", {
+                        method: "POST", headers: headers, body: JSON.stringify(body)
+                    });
+                    const data = await response.json();
+                    console.log(data)
+                    if (data === true) alert("저장 완료!")
+                    else alert("저장 실패!")
+                } catch (error) {
+                    alert("댓글 데이터를 보냈지만, 서버가 닫혀 있습니다.")
+                }
+
+                saveBtn.disabled = false
+            }
+
+            buy();
+        });
+    </script>
+
+    <!--댓글 할당-->
+    <script>
+        let comments = {
+            // 앞의 숫자는 itemId 입니다
+            1: [
+                { commentId: 1, writer: "이수근", description: "맛있습니다. 짱짱" },
+                { commentId: 2, writer: "강호동", description: "수근이랑 10봉지 먹었습니다. 근데 더 먹을 수 있어요" },
+                { commentId: 3, writer: "김종민", description: "이걸 먹었는지 기억이 안나요" }
+            ],
+            2: [
+                { commentId: 1, writer: "유재석", description: "정말 맛있네요." },
+                { commentId: 2, writer: "정준하", description: "야무지게 먹었습니다" },
+                { commentId: 3, writer: "박명수", description: "배가 불러요." }
+            ],
+            3: [
+                { commentId: 1, writer: "하하", description: "하루에 다섯 봉지는 거뜬히 먹을 수 있어요." },
+                { commentId: 2, writer: "송지효", description: "하하가 맛있다고 해서 먹어봤는데, 정말 중독성 있네요." },
+                { commentId: 3, writer: "김종국", description: "운동 후에 먹으니 더 맛있네요. 강추합니다!" }
+            ],
+            4: [
+                { commentId: 1, writer: "아이유", description: "정말 맛있네요. 또 먹고 싶어요!" },
+                { commentId: 2, writer: "박보검", description: "명수형님이 맛있다고 해서 먹어봤는데, 정말 좋았습니다." },
+                { commentId: 3, writer: "수지", description: "먹기 전에는 의심했는데, 먹고 나서는 감탄했습니다." }
+            ]
+
+
+        };
+        let commentElement = document.getElementsByClassName("my-comment")
+        for (let i = 0; i < commentElement.length; i++) {
+            commentElement[i].children[0].textContent = comments[itemId][i].writer
+            commentElement[i].children[1].textContent = comments[itemId][i].description
+        }
+    </script>
+    <!--구매 로직-->
+    <script>
+        let buyBtn = document.querySelector("#buyBtn");
+        buyBtn.addEventListener("click", function (e) {
+
+            let quantityElement = document.querySelector(".myQuantity")
+            let countElement = document.getElementsByName("count")[0]
+
+            if (quantityElement.textContent < countElement.value) {
+                alert("재고가 부족합니다.")
+                return
+            }
+
+            buyBtn.disabled = true
+            async function buy() {
+                const headers = {
+                    "Content-Type": "application/json;charset=UTF-8",
+                    "x-requested-with": "XMLHttpRequest",
+                };
+                const body = { itemId: itemId, userName: userName };
+                try {
+                    //서버가 작동한다고 가정하고 코드를 작성했습니다.
+                    const response = await fetch("http://localhost:8080/buy", {
+                        method: "POST", headers: headers, body: JSON.stringify(body)
+                    });
+                    const data = await response.json();
+                    console.log(data)
+                    if (data === true) alert("구매 완료!")
+                    else alert("구매 실패!")
+                } catch (error) {
+                    alert("구매 데이터를 보냈지만, 서버가 닫혀 있습니다.")
+                }
+                buyBtn.disabled = false
+            }
+
+            buy();
+        });
+    </script>
+    <!--장바구니 로직-->
+    <script>
+        let cart = document.querySelector(".my-cart");
+        cart.addEventListener("click", function (e) {
+            cart.disabled = true
+            let userName = "김병만"
+            async function buy() {
+                const headers = {
+                    "Content-Type": "application/json;charset=UTF-8",
+                    "x-requested-with": "XMLHttpRequest",
+                };
+                const body = { itemId: itemId, userName: userName };
+                try {
+                    //서버가 작동한다고 가정하고 코드를 작성했습니다.
+                    const response = await fetch("http://localhost:8080/cart", {
+                        method: "POST", headers: headers, body: JSON.stringify(body)
+                    });
+                    const data = await response.json();
+                    console.log(data)
+                    if (data === true) alert("저장 완료!")
+                    else alert("저장 실패!")
+                } catch (error) {
+                    alert("데이터를 보냈지만, 서버가 닫혀 있습니다.")
+                }
+                cart.disabled = false
+            }
+
+            buy();
+        });
+    </script>
+    <!--댓글 감추기-->
+    <script>
+        let reviewBox = document.getElementById("review-box")
+        let reviewBtn = document.getElementById("review-btn")
+
+        reviewBtn.addEventListener("click", function () {
+            let reviewBoxDisplay = reviewBox.style.display
+
+            if (reviewBoxDisplay === 'none') {
+                reviewBox.style.display = '';
+            } else {
+                reviewBox.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>

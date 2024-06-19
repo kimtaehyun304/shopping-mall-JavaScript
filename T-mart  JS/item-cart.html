@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>T Mart</title>
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/shop-item-template.css" rel="stylesheet" />
+    <link href="css/my-template.css" rel="stylesheet" />
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#!">T Mart</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#!"></a></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">My</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item">구매 목록</a></li>
+                            <li><a class="dropdown-item">회원 정보</a></li>
+                            <li><a class="dropdown-item">쿠폰 목록</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item">상품 판매</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <a class="btn btn-outline-dark" href="item-cart.html">
+                    <i class="bi-cart-fill me-1"></i>
+                    Cart
+                    <span class="badge bg-dark text-white ms-1 rounded-pill cartItemCount">4</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header-->
+    <header>
+        <div class="container">
+            <div class="text-center text-black">
+                <h1 class="display-4 fw-bolder">장바구니</h1>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Item list-->
+    <section class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center cartItems">
+
+
+        </div>
+    </section>
+
+    <!-- Buy Button -->
+    <section class="container px-4 px-lg-5">
+        <div class="d-flex mb-3 my-btn">
+            <input type="hidden" name="memberId" value="1">
+            <input type="hidden" name="items&count class">
+            <button class="btn btn-primary w-100 buyBtn">총 <span id="count">4</span>개 | <span
+                    id="totalPrice">10000</span>원 결제하기</button>
+        </div>
+    </section>
+
+    <!-- Footer-->
+    <footer class="py-5 bg-dark mt-auto">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; KTH JavaScript 2024</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--상품 데이터-->
+    <script src="./js/items.js"></script>
+
+    <!-- 카트 상품 할당-->
+    <script>
+        let cartItemsElement = document.querySelector(".cartItems")
+        let arraysOnlyItem = Object.values(items)
+        let count = 0
+        let totalPrice = 0
+        let countElement = document.querySelector("#count")
+        let totalPriceElement = document.querySelector("#totalPrice")
+        for (let i = 0; i < arraysOnlyItem.length; i++) {
+            for (let j = 0; j < arraysOnlyItem[i].length; j++) {
+                let newItemElement2 = `<div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
+                            Sale</div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="./images/${arraysOnlyItem[i][j].name}.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder my-item-title">${arraysOnlyItem[i][j].name}</h5>
+                                <!-- Product price-->
+                                <span class='price'>${arraysOnlyItem[i][j].price}</span>원
+                                <!-- seller name-->
+                                <div>${arraysOnlyItem[i][j].seller}</div>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="text-center p-4 pt-0 border-top-0">
+                            <button class="btn btn-outline-dark w-50 removeBtn">X</button>
+                        </div>
+                    </div>
+                    </div>`
+                cartItemsElement.innerHTML += newItemElement2
+                count++
+                totalPrice += parseInt(arraysOnlyItem[i][j].price)
+                countElement.textContent = count
+                totalPriceElement.textContent = totalPrice
+            }
+        }
+    </script>
+
+    <!-- 카트 상품 제거-->
+    <script>
+        let removeBtn = document.getElementsByClassName("removeBtn")
+        Array.from(removeBtn).forEach(function (element) {
+            element.addEventListener('click', function (event) {
+                //엘리먼트 삭제
+                element.parentElement.parentElement.parentElement.remove()
+                //구매 버튼 정보 갱신
+                let childernElement = cartItemsElement.children
+                let nowTotalPrice = 0;
+                countElement.textContent = childernElement.length
+                for (let i = 0; i < childernElement.length; i++) {
+                    nowTotalPrice += parseInt(childernElement[i].getElementsByClassName("price")[0].textContent)
+                }
+                countElement.textContent = childernElement.length
+                totalPriceElement.textContent = nowTotalPrice
+
+                //우측 상단 카트 상품 개수 변경
+                document.getElementsByClassName("cartItemCount")[0].textContent = childernElement.length
+
+                if (childernElement.length == 0) {
+                    cartItemsElement.innerHTML = "<h1>상품이 없어요!</h1>"
+                    document.getElementsByClassName("buyBtn")[0].remove()
+                }
+            })
+        });
+
+    </script>
+
+    <!--구매 로직-->
+    <script>
+        let buyBtn = document.querySelector(".buyBtn");
+        buyBtn.addEventListener("click", function (e) {
+
+            buyBtn.disabled = true
+            async function cartBuy() {
+                const headers = {
+                    "Content-Type": "application/json;charset=UTF-8",
+                    "x-requested-with": "XMLHttpRequest",
+                };
+                const body = { userName: "김병만" };
+                try {
+                    //서버가 작동한다고 가정하고 코드를 작성했습니다.
+                    const response = await fetch("http://localhost:8080/cartBuy", {
+                        method: "POST", headers: headers, body: JSON.stringify(body)
+                    });
+                    const data = await response.json();
+                    console.log(data)
+                    if (data === true) alert("구매 완료!")
+                    else alert("구매 실패!")
+                } catch (error) {
+                    alert("구매 데이터를 보냈지만, 서버가 닫혀 있습니다.")
+                }
+                buyBtn.disabled = false
+            }
+
+            cartBuy();
+        });
+    </script>
+
+
+</body>
+
+</html>

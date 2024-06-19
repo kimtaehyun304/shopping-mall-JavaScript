@@ -1,0 +1,57 @@
+textarea {
+    resize: none;
+}
+
+.my-a {
+    color: inherit !important; /* 링크의 색상을 상위 요소에서 상속받도록 설정 */
+    text-decoration: none !important; /* 밑줄 스타일 제거 */
+    background-color: transparent !important; /* 배경색 제거 */
+    -webkit-text-decoration-skip: none !important; /* 밑줄 스킵 제거 */
+}
+
+.my-item-title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 25px;
+}
+
+.my-search-form{
+    height: 50px;
+}
+
+.my-btn{
+    height: 50px;
+    font-size: 24px;
+}
+
+.my-notice-title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 600px;
+}
+
+.my-notice-content{
+    min-height: 300px !important;
+}
+
+input[type="file"]{
+    display: none;
+}
+
+.my-user-form input[type=text], .my-user-form input[type=email], .my-user-form input[type=password], .my-user-form> button  {
+    height: 60px;
+}
+  
+.my-user-form {
+    font-size: 35px;
+}
+  
+.my-user-form input[type=checkbox] {
+    zoom: 2;
+}
+
+.my-item-form label{
+    color: #CCCCCC
+}

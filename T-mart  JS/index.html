@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>T Mart</title>
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/shop-item-template.css" rel="stylesheet" />
+    <link href="css/my-template.css" rel="stylesheet" />
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#!">T Mart</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#!"></a></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">My</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item">구매 목록</a></li>
+                            <li><a class="dropdown-item">회원 정보</a></li>
+                            <li><a class="dropdown-item">쿠폰 목록</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item">상품 판매</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <a class="btn btn-outline-dark" href="item-cart.html">
+                    <i class="bi-cart-fill me-1"></i>
+                    Cart
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">4</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Header-->
+    <header>
+        <div class="container">
+            <div class="text-center text-black">
+                <h1 class="display-4 fw-bolder">상품 목록</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search bar-->
+    <section class="container px-4 px-lg-5">
+        <div class="d-flex mb-4 my-search-form">
+            <input class="form-control me-3" type="search" placeholder="상품 이름을 적으세요" aria-label="Search">
+            <select class="form-select me-3 w-25" name="category">
+                <option value="all">전체</option>
+                <option value="noodle">면</option>
+            </select>
+            <button class="searchBtn btn btn-primary">Search</button>
+        </div>
+    </section>
+
+    <!-- Item list-->
+    <section class="container px-4 px-lg-5 ">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center myItems"></div>
+    </section>
+
+    <!-- Page move-->
+    <section class="container text-center display-4">
+        <ul class="list-group list-group-horizontal justify-content-center ">
+            <li class="list-group-item "><a href="index.html?p=1"><i
+                        class="bi bi-arrow-left-short text-black"></i></a></li>
+            <li class="list-group-item"><a class="text-decoration-none text-black" href="index.html?p=1">1</a></li>
+            <li class="list-group-item"><a class="text-decoration-none text-black" href="index.html?p=2">2</a></li>
+            <li class="list-group-item"><a class="text-decoration-none text-black" href="index.html?p=3">3</a></li>
+            <li class="list-group-item"><a href="index.html?p=3"><i
+                        class="bi bi-arrow-right-short text-black"></i></a></li>
+        </ul>
+    </section>
+
+    <!-- Footer-->
+    <footer class="py-5 bg-dark mt-auto">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; KTH JavaScript 2024</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!--상품 데이터-->
+    <script src="./js/items.js"></script>
+    <!--쿼리 파라미터 수집-->
+    <script>
+        let urlParams = new URL(location.href).searchParams;
+        let page = urlParams.get('p');
+        if (page == undefined) page = 1
+    </script>
+
+    <!--상품 검색 로직-->
+    <script>
+        let searchBtn = document.querySelector(".searchBtn")
+        let itemsElement = document.querySelector(".myItems")
+        searchBtn.addEventListener("click", function (e) {
+            //검색 시점에 검색 내용을 추출해야함
+            let searchDescription = document.querySelector("input").value
+            //객체 안의 배열 추출
+            let arraysOnlyItem = Object.values(items);
+            itemsElement.innerHTML = ''
+            for (let i = 0; i < arraysOnlyItem.length; i++) {
+                for (let j = 0; j < arraysOnlyItem[i].length; j++) {
+                    if (arraysOnlyItem[i][j].name.includes(searchDescription) && searchDescription != "") {
+                        let newItemElement2 = `<div class="col mb-5 ">
+                            <a class="my-a" href="item-detail.html?p=${arraysOnlyItem[i][j].pageId}&itemId=${arraysOnlyItem[i][j].itemId}">
+                                <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="./images/${arraysOnlyItem[i][j].name}.jpg"/>
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder my-item-title">${arraysOnlyItem[i][j].name}</h5>
+                                    <!-- Product price-->
+                                    ${arraysOnlyItem[i][j].price}원
+                                    <!-- seller name-->
+                                    <div>${arraysOnlyItem[i][j].seller}</div>
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="text-center card-footer">
+                                상세 보기
+                            </div>
+                            </div>
+                             </a>
+                            </div>`
+                        itemsElement.innerHTML += newItemElement2;
+                    }
+                }
+            }
+            if (itemsElement.textContent == '')
+                itemsElement.innerHTML = '<h1>상품이 없어요!</h1>'
+        });
+    </script>
+
+
+    <!--페이지 별 상품 할당-->
+    <script>
+        let currentPageItem = items[page]
+        for (let i = 0; i < currentPageItem.length; i++) {
+            let newItemElement = `<div class="col mb-5 ">
+                <a class="my-a" href="item-detail.html?p=${page}&itemId=${currentPageItem[i].itemId}">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="./images/${currentPageItem[i].name}.jpg"/>
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder my-item-title">${currentPageItem[i].name}</h5>
+                                <!-- Product price-->
+                                ${currentPageItem[i].price}원
+                                <!-- seller name-->
+                                <div>${currentPageItem[i].seller}</div>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="text-center card-footer">
+                            상세 보기
+                        </div>
+                    </div>
+                </a>
+            </div>`
+
+            itemsElement.innerHTML += newItemElement;
+        }
+
+    </script>
+</body>
+
+</html>
