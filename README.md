@@ -1,8 +1,8 @@
-# 순수 JavaScript로 만든 쇼핑몰
+# 순수 JavaScript로 만든 쇼핑몰 (tmart)
 
 https://202030411-kth-tmart.netlify.app/
 
-과제 제출용으로 만들었습니다.  
+과제 제출용으로 만들었습니다. tama와 별개의 프로젝트입니다.  
 
 [설명]  
 <ul>
